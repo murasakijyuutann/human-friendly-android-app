@@ -10,8 +10,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.noteapp.databinding.FragmentNoteListBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 class NoteListFragment : Fragment() {
@@ -41,6 +44,29 @@ class NoteListFragment : Fragment() {
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Swipe to delete
+        // Attaches an ItemTouchHelper to the RecyclerView that listens for left or right swipe
+        // gestures on any note row. When a swipe is detected, the note is deleted via the ViewModel
+        // and a Snackbar appears with an Undo action — tapping Undo re-inserts the note instantly.
+        val swipeCallback = object : ItemTouchHelper.SimpleCallback(
+            0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                rv: RecyclerView,
+                vh: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ) = false
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val note = adapter.currentList[viewHolder.bindingAdapterPosition]
+                viewModel.deleteNote(note)
+                Snackbar.make(binding.root, "Note deleted", Snackbar.LENGTH_LONG)
+                    .setAction("Undo") { viewModel.undoDelete() }
+                    .show()
+            }
+        }
+        ItemTouchHelper(swipeCallback).attachToRecyclerView(binding.recyclerView)
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
