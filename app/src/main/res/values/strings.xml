@@ -7,5 +7,7 @@
     <string name="add_note">Add note</string>
     <string name="title_required">Title is required</string>
     <string name="no_notes">No notes yet. Tap + to create one.</string>
+    <string name="welcome_title">Welcome to Note App</string>
+    <string name="welcome_hint">Please touch the screen to start</string>
 </resources>
 
