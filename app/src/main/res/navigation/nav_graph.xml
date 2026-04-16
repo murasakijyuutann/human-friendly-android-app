@@ -34,7 +34,21 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
+        <action
+            android:id="@+id/action_menuFragment_to_drawingFragment"
+            app:destination="@id/drawingFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
     </fragment>
+
+    <fragment
+        android:id="@+id/drawingFragment"
+        android:name="com.example.noteapp.ui.notes.DrawingFragment"
+        android:label="Drawing"
+        tools:layout="@layout/fragment_drawing" />
 
     <fragment
         android:id="@+id/noteListFragment"

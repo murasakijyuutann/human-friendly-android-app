@@ -26,6 +26,12 @@ class MenuFragment : Fragment() {
             val action = MenuFragmentDirections.actionMenuFragmentToNoteListFragment()
             findNavController().navigate(action)
         }
+
+        // "Drawing" カードをタップすると描画画面へ遷移
+        view.findViewById<View>(R.id.cardDrawing).setOnClickListener {
+            val action = MenuFragmentDirections.actionMenuFragmentToDrawingFragment()
+            findNavController().navigate(action)
+        }
     }
 }
 

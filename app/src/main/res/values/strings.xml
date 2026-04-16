@@ -12,5 +12,15 @@
     <string name="menu_title">Main Menu</string>
     <string name="menu_notes">Notes</string>
     <string name="menu_notes_desc">Create and manage your notes</string>
+    <string name="menu_drawing">Drawing</string>
+    <string name="menu_drawing_desc">Sketch and draw freely</string>
+    <string name="drawing_title">Drawing</string>
+    <string name="drawing_color">Color:</string>
+    <string name="drawing_clear">Clear</string>
+    <string name="drawing_save">Save</string>
+    <string name="color_black">Black</string>
+    <string name="color_red">Red</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_white">White</string>
 </resources>
 
