@@ -8,26 +8,24 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.noteapp.R
 
-class WelcomeFragment : Fragment() {
+class MenuFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
+        return inflater.inflate(R.layout.fragment_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.setOnClickListener {
-            val action = WelcomeFragmentDirections.actionWelcomeFragmentToMenuFragment()
+        // "Notes" カードをタップするとノートリスト画面へ遷移
+        view.findViewById<View>(R.id.cardNotes).setOnClickListener {
+            val action = MenuFragmentDirections.actionMenuFragmentToNoteListFragment()
             findNavController().navigate(action)
         }
     }
 }
-
-
-
 

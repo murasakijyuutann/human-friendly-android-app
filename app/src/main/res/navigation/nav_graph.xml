@@ -13,10 +13,26 @@
         tools:layout="@layout/fragment_welcome">
 
         <action
-            android:id="@+id/action_welcomeFragment_to_noteListFragment"
-            app:destination="@id/noteListFragment"
+            android:id="@+id/action_welcomeFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.noteapp.ui.notes.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu">
+
+        <action
+            android:id="@+id/action_menuFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
     </fragment>
 

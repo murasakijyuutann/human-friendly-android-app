@@ -9,5 +9,8 @@
     <string name="no_notes">No notes yet. Tap + to create one.</string>
     <string name="welcome_title">Welcome to Note App</string>
     <string name="welcome_hint">Please touch the screen to start</string>
+    <string name="menu_title">Main Menu</string>
+    <string name="menu_notes">Notes</string>
+    <string name="menu_notes_desc">Create and manage your notes</string>
 </resources>
 
